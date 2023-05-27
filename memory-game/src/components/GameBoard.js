@@ -15,57 +15,28 @@ function GameBoard(props) {
 
     const { handleGameLogic, score, highScore } = props;
 
-  let images = [
-    {
-      src: one,
-      title: one
-    },
-    {
-        src: two,
-        title: two
-    },
-    {
-        src: three,
-        title: three
-    },
-    {
-        src: four,
-        title: four
-    },
-    {
-        src: five,
-        title: five
-    },
-    {
-        src: six,
-        title: six
-    },
-    {
-        src: seven,
-        title: seven
-    },
-    {
-        src: eight,
-        title: eight
-    },
-    {
-        src: nine,
-        title: nine
-    },
-    {
-        src: ten,
-        title: ten
-    }
-  ];
+    const images = [
+      { src: one, title: one },
+      { src: two, title: two },
+      { src: three, title: three },
+      { src: four, title: four },
+      { src: five, title: five },
+      { src: six, title: six },
+      { src: seven, title: seven },
+      { src: eight, title: eight },
+      { src: nine, title: nine },
+      { src: ten, title: ten }
+    ];
 
   const [cards, setNewCards] = useState(images);
 
-  const shuffle = (newCards) => {
-    for (let i = newCards.length - 1; i > 0; i--) {
-      let randomIdx = Math.floor(Math.random() * i);
-      [newCards[randomIdx], newCards[i]] = [newCards[i], newCards[randomIdx]];
+  const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const randomIdx = Math.floor(Math.random() * i);
+      [array[randomIdx], array[i]] = [array[i], array[randomIdx]];
     }
   };
+
 
   useEffect(() => {
     const newCards = [...cards];
