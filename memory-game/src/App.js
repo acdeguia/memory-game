@@ -1,12 +1,10 @@
 import React from "react";
-import GameBoard from "./components/GameBoard";
-import Header from "./components/Header";
+import GameController from "./components/GameController";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <GameBoard />
+      <GameController />
     </div>
   );
 }

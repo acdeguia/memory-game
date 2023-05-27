@@ -1,28 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    height: 100vh;
-    display: flex;
-    margin: auto;
-    width: 1140px;
-    font-family: 'Kalam', cursive;
-    text-align: center;
-    background-image: url(./assets/bg.svg); 
-    color: fff;
-
-  }
+body {
+  height: 100vh;
+  display: flex;
+  margin: auto;
+  width: 1140px;
+  font-family: "Kalam", cursive;
+  text-align: center;
+  background-image: url(./assets/bg.svg);
+  color: #fff;
+}
 
 .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.header {
+  padding: 50px;
+}
+
+.header h1 {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.header h2 {
+  font-size: 18px;
+}
+
+.header p {
+  font-size: 15px;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  margin-top: 27px;
+  gap: 60px;
 }

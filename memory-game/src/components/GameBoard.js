@@ -1,49 +1,74 @@
-import React, { useState } from 'react';
-import CardContainer from './CardContainer';
-import Header from './Header';
+import React, { useState, useEffect } from "react";
+import Card from "./Card";
+import one from "../assets/1.png";
+import two from "../assets/2.png";
+import three from "../assets/3.png";
+import four from "../assets/4.png";
+import five from "../assets/5.png";
+import six from "../assets/6.png";
+import seven from "../assets/7.png";
+import eight from "../assets/8.png";
+import nine from "../assets/9.png";
+import ten from "../assets/10.png";
 
-function GameBoard() {
-  const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
-  const [cardsArr, addCard] = useState([]);
+function GameBoard(props) {
 
-  const handleScore = () => {
-    setScore((prevScore) => prevScore + 1);
-  };
+    const { handleGameLogic, score, highScore } = props;
 
-  const handleHighScore = () => {
-    setHighScore(score);
-  };
+  let images = [
+    {
+      src: one,
+    },
+    {
+        src: two,
+    },
+    {
+        src: three,
+    },
+    {
+        src: four,
+    },
+    {
+        src: five,
+    },
+    {
+        src: six,
+    },
+    {
+        src: seven,
+    },
+    {
+        src: eight,
+    },
+    {
+        src: nine,
+    },
+    {
+        src: ten,
+    }
+  ];
 
-  const handleCard = (cardName) => {
-    addCard((prevArr) => [...prevArr, cardName]);
-  };
+  const [cards, setNewCards] = useState(images);
 
-  const reset = () => {
-    setScore(0);
-    addCard([]);
-  };
-
-  const handleGameLogic = (cardName) => {
-    if (!cardsArr.includes(cardName)) {
-      handleCard(cardName);
-      handleScore();
-    } else {
-      handleHighScore();
-      reset();
+  const shuffle = (newCards) => {
+    for (let i = newCards.length - 1; i > 0; i--) {
+      let randomIdx = Math.floor(Math.random() * i);
+      [newCards[randomIdx], newCards[i]] = [newCards[i], newCards[randomIdx]];
     }
   };
 
+  useEffect(() => {
+    const newCards = [...cards];
+    shuffle(newCards);
+    setNewCards(newCards);
+  }, [score, highScore]);
+
+
   return (
-    <div>
-     
-      <div className="card-container" id="card-container">
-        <CardContainer
-          handleGameLogic={handleGameLogic}
-          score={score}
-          highScore={highScore}
-        />
-      </div>
+    <div className="card-container">
+      {cards.map((card) => (
+        <Card card={card} key={card.title} handleGameLogic={handleGameLogic} />
+      ))}
     </div>
   );
 }
