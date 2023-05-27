@@ -18,33 +18,43 @@ function GameBoard(props) {
   let images = [
     {
       src: one,
+      title: one
     },
     {
         src: two,
+        title: two
     },
     {
         src: three,
+        title: three
     },
     {
         src: four,
+        title: four
     },
     {
         src: five,
+        title: five
     },
     {
         src: six,
+        title: six
     },
     {
         src: seven,
+        title: seven
     },
     {
         src: eight,
+        title: eight
     },
     {
         src: nine,
+        title: nine
     },
     {
         src: ten,
+        title: ten
     }
   ];
 
@@ -62,7 +72,6 @@ function GameBoard(props) {
     shuffle(newCards);
     setNewCards(newCards);
   }, [score, highScore]);
-
 
   return (
     <div className="card-container">

@@ -3,12 +3,12 @@ import React from "react";
 function Card(props) {
 
     const {
-        card: {src}, handleGameLogic
+        card: {src, title}, handleGameLogic
     } = props;
 
     return(
-        <div onClick={handleGameLogic}>
-            <img src={src} alt={''}/>
+        <div onClick={handleGameLogic.bind(this, title)}>
+            <img src={src} alt={title}/>
         </div>
     )
 }

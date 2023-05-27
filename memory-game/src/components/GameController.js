@@ -7,14 +7,6 @@ function GameController() {
   const [highScore, setHighScore] = useState(0);
   const [cardsArr, addCard] = useState([]);
 
-  const handleScore = () => {
-    setScore((prevScore) => prevScore + 1);
-  };
-
-  const handleHighScore = () => {
-    setHighScore(score);
-  };
-
   const handleCard = (cardName) => {
     addCard((prevArr) => [...prevArr, cardName]);
   };
@@ -27,9 +19,9 @@ function GameController() {
   const handleGameLogic = (cardName) => {
     if (!cardsArr.includes(cardName)) {
       handleCard(cardName);
-      handleScore();
+      setScore((prevScore) => prevScore + 1);
     } else {
-      handleHighScore();
+      setHighScore((prevHighScore) => (score > prevHighScore ? score : prevHighScore));
       reset();
     }
   };
